@@ -67,8 +67,14 @@ const performanceSchema = new Schema(
         month: {
             type: String,
             required: true,
-            // A composite unique index to ensure an employee has only one review per month
-            unique: true,
+        },
+        averageRating: {
+            type: Number,
+            required: true
+        },
+        ratingPercentage: {
+            type: Number,
+            required: true
         },
         // performance: {
         //     // Generic performance fields using the same structure
@@ -79,7 +85,7 @@ const performanceSchema = new Schema(
         //     behavior: [performanceReviewDetailSchema],
         //     discipline: [performanceReviewDetailSchema],
         // },
-        performance:[performanceReviewDetailSchema],
+        performance: [performanceReviewDetailSchema],
 
     },
     { timestamps: true } // Adds createdAt and updatedAt fields
